@@ -1,0 +1,15 @@
+# Trp fluorescence emission maximum of EMAP II vs temperature, digitised from the figures of
+# Kordysh M.O., Dubrovskyi O.L., Kornelyuk O.I., Fizyka Zhyvoho (Physics of the Alive) 2005, 13(1), 79-85.
+# Digitisation uncertainty about +/-1 nm per point. 'measured' = read from a plotted point;
+# 'interp' = interpolated between plotted points (used only for plotting the guide curve).
+# Source of this table: neo_diploma/results/kordysh_validation.md (thesis wiki, 2026-04-07).
+T_C,lambda_max_nm,kind
+25,335.0,measured
+30,335.5,measured
+35,338.0,interp
+37,342.0,measured
+40,344.0,interp
+42,345.5,interp
+45,349.0,measured
+50,349.0,interp
+55,349.0,measured

@@ -1,0 +1,30 @@
+# Якщо це продовження попередньої симуляції - розкоментуйте рядок RESTART
+# RESTART
+
+# --- 1. ВИЗНАЧЕННЯ ЗМІННИХ (CVs) ---
+
+# Кути діедральні (перевірте, чи це правильні атоми для вашого TRP!)
+phi: TORSION ATOMS=1976,1978,1980,1983
+psi: TORSION ATOMS=1978,1980,1983,1984
+
+# --- 3. МЕТАДИНАМІКА ---
+
+# Важливо: TEMP=298 (Це 25 градусів Цельсія)
+metad: METAD ...
+   ARG=phi,psi
+   SIGMA=0.35,0.35
+   HEIGHT=1.2
+   PACE=500
+   BIASFACTOR=10
+   TEMP=308
+   GRID_MIN=-pi,-pi
+   GRID_MAX=pi,pi
+   GRID_BIN=200,200
+   FILE=HILLS
+...
+
+# --- 4. ЗАПИС РЕЗУЛЬТАТІВ ---
+
+# STRIDE=500 (1 пс при кроці 2 фс)
+# sasa_val пишеться в останню колонку
+PRINT ARG=phi,psi,metad.bias STRIDE=500 FILE=COLVAR

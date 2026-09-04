@@ -1,0 +1,266 @@
+[
+ {
+  "dest": "data/md_clean/clean_perframe.npz",
+  "source": "/home/sasha/diploma/papers/buried/figures/clean_perframe.npz",
+  "bytes": 530692,
+  "note": "Produced by papers/buried/figures/make_figures_clean.py from cloud protein_dt1000.xtc with box-aware MDAnalysis calc_dihedrals (min-image), NoJump SASA, box-aware distances."
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_25.xvg",
+  "source": "/home/sasha/diploma/ang/results/25/sasa_indole_25_fixed.xvg",
+  "bytes": 36539,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_30.xvg",
+  "source": "/home/sasha/diploma/ang/results/30/sasa_indole_30_fixed.xvg",
+  "bytes": 35409,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/chi2_gmx_100ps_30.xvg",
+  "source": "/home/sasha/diploma/ang/results/30/chi2_gromacs_correct.xvg",
+  "bytes": 159615,
+  "note": "downsampled x10 from 10-ps gmx angle output"
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_35.xvg",
+  "source": "/home/sasha/diploma/ang/results/35/sasa_indole_35_fixed.xvg",
+  "bytes": 37635,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/chi2_gmx_100ps_35.xvg",
+  "source": "/home/sasha/diploma/ang/results/35/chi2_gromacs_correct.xvg",
+  "bytes": 170856,
+  "note": "downsampled x10 from 10-ps gmx angle output"
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_40.xvg",
+  "source": "/home/sasha/diploma/ang/results/40/sasa_indole_40_fixed.xvg",
+  "bytes": 37457,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/chi2_gmx_100ps_40.xvg",
+  "source": "/home/sasha/diploma/ang/results/40/chi2_gromacs_correct.xvg",
+  "bytes": 170174,
+  "note": "downsampled x10 from 10-ps gmx angle output"
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_45.xvg",
+  "source": "/home/sasha/diploma/ang/results/45/sasa_indole_45_fixed.xvg",
+  "bytes": 37777,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/chi2_gmx_100ps_45.xvg",
+  "source": "/home/sasha/diploma/ang/results/45/chi2_gromacs_correct.xvg",
+  "bytes": 177956,
+  "note": "downsampled x10 from 10-ps gmx angle output"
+ },
+ {
+  "dest": "data/md_clean/sasa_indole_50.xvg",
+  "source": "/home/sasha/diploma/ang/results/50/sasa_indole_50_fixed.xvg",
+  "bytes": 37582,
+  "note": "freesasa on NoJump-unwrapped protein; cols: time_ns SASA_indole SASA_benzene chi2 state"
+ },
+ {
+  "dest": "data/md_clean/chi2_gmx_100ps_50.xvg",
+  "source": "/home/sasha/diploma/ang/results/50/chi2_gromacs_correct.xvg",
+  "bytes": 168453,
+  "note": "downsampled x10 from 10-ps gmx angle output"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_25_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/25/chi_mda_25.xvg",
+  "bytes": 25123,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_30_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/30/chi_mda_30.xvg",
+  "bytes": 25878,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_35_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/35/chi_mda_35.xvg",
+  "bytes": 26416,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_40_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/40/chi_mda_40.xvg",
+  "bytes": 26448,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_45_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/45/chi_mda_45.xvg",
+  "bytes": 27349,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/md_raw_pbc_broken/chi_mda_50_pbc_broken.xvg",
+  "source": "/home/sasha/diploma/ang/results/50/chi_mda_50.xvg",
+  "bytes": 26191,
+  "note": "MDAnalysis dihedral WITHOUT box (min-image) -> ~180 deg flips when the side chain straddles the box; do not use for populations"
+ },
+ {
+  "dest": "data/metad/plumed_25.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_25.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_30.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_30.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_35.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_35.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_40.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_40.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_45.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_45.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_50.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_50.dat",
+  "bytes": 893,
+  "note": "PLUMED 2.10 WTMetaD input actually used (phi/psi labels = chi1/chi2 of Trp128)"
+ },
+ {
+  "dest": "data/metad/plumed_opes_25.dat",
+  "source": "/home/sasha/diploma/simulations/plumed_opes_25.dat",
+  "bytes": 1125,
+  "note": "OPES-Explore input prepared but NOT run (md0021)"
+ },
+ {
+  "dest": "data/metad/fes_basins_6T.json",
+  "source": "/home/sasha/diploma/ang/results/metad/fes_basins_6T.json",
+  "bytes": 17150,
+  "note": "basin free energies from ang/scripts/plot_metad_fes_6T.py (FFT hill summation, chi1=trans gate)"
+ },
+ {
+  "dest": "data/metad/fes_basins_5T.json",
+  "source": "/home/sasha/diploma/ang/results/metad/fes_basins_5T.json",
+  "bytes": 14396,
+  "note": "basin free energies from ang/scripts/plot_metad_fes_6T.py (FFT hill summation, chi1=trans gate)"
+ },
+ {
+  "dest": "data/metad/fes_basins_3runs.json",
+  "source": "/home/sasha/diploma/ang/results/metad/fes_basins_3runs.json",
+  "bytes": 8139,
+  "note": "basin free energies from ang/scripts/plot_metad_fes_6T.py (FFT hill summation, chi1=trans gate)"
+ },
+ {
+  "dest": "data/metad/fes_grid_25.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_25/HILLS",
+  "bytes": 144930,
+  "note": "200x200 FES grid from 1000000 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/metad/fes_grid_30.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_30/HILLS",
+  "bytes": 144175,
+  "note": "200x200 FES grid from 1001298 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/metad/fes_grid_35.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_35/HILLS",
+  "bytes": 144092,
+  "note": "200x200 FES grid from 1001330 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/metad/fes_grid_40.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_40_new/HILLS",
+  "bytes": 143992,
+  "note": "200x200 FES grid from 1001650 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/metad/fes_grid_45.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_45/HILLS",
+  "bytes": 144404,
+  "note": "200x200 FES grid from 1000129 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/metad/fes_grid_50.npz",
+  "source": "/home/sasha/diploma/ang/cloud_data/wtmetad_50/HILLS",
+  "bytes": 144770,
+  "note": "200x200 FES grid from 1002144 hills (t_end=1000 ns), FFT sum, WT factor gamma/(gamma-1)"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_25.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_25.dat",
+  "bytes": 80533,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_30.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_30.dat",
+  "bytes": 81972,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_35.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_35.dat",
+  "bytes": 83210,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_40.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_40.dat",
+  "bytes": 82290,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_45.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_45.dat",
+  "bytes": 83905,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/pocket_gmm4_50.dat",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/pocket_gmm4_50.dat",
+  "bytes": 82273,
+  "note": "thesis-era GMM n=4 on WCN/d_S1/d_S3/M/Q_p (ang/scripts/cluster_pocket_n4.py); chi2 column is RAW/PBC-broken"
+ },
+ {
+  "dest": "data/gmm_legacy/chi_basin_gmm_crosstab.csv",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/chi_basin_gmm_crosstab.csv",
+  "bytes": 247,
+  "note": "thesis-era cross-tab of (chi1,chi2) basins vs GMM clusters"
+ },
+ {
+  "dest": "data/gmm_legacy/chi_6basin_gmm_crosstab.csv",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/chi_6basin_gmm_crosstab.csv",
+  "bytes": 296,
+  "note": "thesis-era cross-tab of (chi1,chi2) basins vs GMM clusters"
+ },
+ {
+  "dest": "data/gmm_legacy/chi_6basin_3x2_gmm_crosstab.csv",
+  "source": "/home/sasha/diploma/ang/results/pocket_classification/chi_6basin_3x2_gmm_crosstab.csv",
+  "bytes": 305,
+  "note": "thesis-era cross-tab of (chi1,chi2) basins vs GMM clusters"
+ },
+ {
+  "dest": "data/structure/8ONG_model1.pdb",
+  "source": "/home/sasha/Downloads/8ong.pdb",
+  "bytes": 215059,
+  "note": "model 1 of the 19-model NMR ensemble (wwPDB 8ONG); MD started from this model"
+ }
+]

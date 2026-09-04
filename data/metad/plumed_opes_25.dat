@@ -1,0 +1,33 @@
+# OPES Explore: Trp128 chi1/chi2, EMAP II, T=25°C (md0021)
+# Ref: Invernizzi & Parrinello, JCTC 2022, 18, 3988
+#
+# Для рестарту: розкоментуйте RESTART і STATE_RFILE
+# RESTART
+
+# Завантаження OPES модуля (не скомпільований за замовчуванням)
+LOAD FILE=OPESmetad.so
+
+# --- CVs (GROMACS topology indices) ---
+# chi1 = N-CA-CB-CG (phi в WTMetaD)
+chi1: TORSION ATOMS=1976,1978,1980,1983
+# chi2 = CA-CB-CG-CD1 (psi в WTMetaD)
+chi2: TORSION ATOMS=1978,1980,1983,1984
+
+# --- OPES Explore ---
+# BARRIER=40 kJ/mol → gamma ≈ 16 (vs WTMetaD BIASFACTOR=10)
+# PACE=500 (1 ps при dt=2 fs) — як у WTMetaD
+# SIGMA не задаємо — адаптивний (визначається автоматично з флуктуацій CV)
+opes: OPES_METAD_EXPLORE ...
+   ARG=chi1,chi2
+   PACE=500
+   BARRIER=40
+   TEMP=298
+   STATE_WFILE=STATE
+   STATE_WSTRIDE=500000
+   NLIST
+   # STATE_RFILE=STATE
+...
+
+# --- Output (кожну 1 пс) ---
+PRINT FMT=%g STRIDE=500 FILE=COLVAR ARG=chi1,chi2,opes.bias,opes.rct,opes.zed,opes.neff,opes.nker
+FLUSH STRIDE=500
