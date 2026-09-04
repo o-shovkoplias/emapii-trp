@@ -1,0 +1,14 @@
+name: emapii-trp
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11
+  - numpy>=1.26,<3
+  - scipy>=1.11
+  - pandas>=2.0
+  - matplotlib>=3.8
+  - scikit-learn>=1.3
+  - pyyaml>=6.0
+  - typer>=0.9
+  # optional: only for scripts/prepare_data.py (re-extraction from trajectories)
+  # - mdanalysis>=2.7

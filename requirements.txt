@@ -1,0 +1,12 @@
+# Analysis-only dependencies (no MD engine needed to re-run the analysis).
+# Python >= 3.11. Versions are the ones the results/ and figures/ were produced with.
+numpy>=1.26,<3
+scipy>=1.11
+pandas>=2.0
+matplotlib>=3.8
+scikit-learn>=1.3
+PyYAML>=6.0
+typer>=0.9
+# Optional -- only needed for scripts/prepare_data.py (re-extracting per-frame
+# tables from the trajectories, which are not shipped in this repository):
+# MDAnalysis>=2.7

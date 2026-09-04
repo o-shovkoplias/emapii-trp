@@ -1,0 +1,24 @@
+# MD binaries -- never committed; see scripts/fetch_trajectories.md
+*.xtc
+*.trr
+*.tpr
+*.cpt
+*.edr
+*.gro.gz
+HILLS*
+COLVAR*
+*.tar.gz
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+
+# Scratch outputs
+results/raw/
+*.log
+.DS_Store

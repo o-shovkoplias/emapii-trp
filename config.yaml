@@ -1,0 +1,64 @@
+# emapii-trp -- analysis parameters. All paths are relative to the repository root.
+
+residue:
+  pdb_8ong_number: 128        # Trp128 in PDB 8ONG numbering (used in all code/data)
+  mature_protein_number: 125  # Trp125 in the mature-protein numbering used in publications
+  chi2_atoms: [CA, CB, CG, CD1]
+  chi2_atom_indices_gromacs_1based: [1978, 1980, 1983, 1984]
+
+temperatures_C: [25, 30, 35, 40, 45, 50]
+frame_spacing_ns: 1.0         # clean per-frame table: 1 frame per ns, 1001 frames per T
+
+# chi2 windows (degrees, GROMACS / IUPAC right-handed sign convention)
+basins:
+  published:                  # windows used in the thesis / neo_diploma wiki
+    S1: [50, 150]
+    S2: [-90, -30]
+    S3: [-160, -90]
+  narrow:                     # windows of calc_chi2_populations.py (populations_vs_T.md)
+    S1: [60, 130]
+    S2: [-90, -30]
+    S3: [-160, -90]
+
+vant_hoff:
+  # each entry: how to define S1 / S3 for ln K = ln(P_S3 / P_S1)
+  definitions:
+    - name: published_windows
+      S1: [50, 150]
+      S3: [-160, -90]
+    - name: sign_cut
+      S1: [0, 180]
+      S3: [-180, -90]
+    - name: narrow_windows
+      S1: [60, 130]
+      S3: [-160, -90]
+  drop_T_variants: [[], [50]]  # fit with all T and with the non-monotonic 50 C run removed
+  min_frames_per_state: 1      # a T with zero frames in either state cannot enter ln K
+
+bootstrap:
+  n_boot: 2000
+  block_length_frames: 50      # 50 ns blocks (chi2 basin autocorrelation is tens of ns)
+  seed: 2026
+  ci: 0.95
+
+gmm:
+  features: [dgln, dlys, dne, dmin, sasa]
+  n_components_scan: [1, 2, 3, 4, 5, 6, 7, 8]
+  n_components: 4
+  seed: 2026
+  n_init: 5
+
+metad:
+  grid_bins: 200
+  sigma_rad: 0.35
+  bias_factor: 10
+  hill_height_kJmol: 1.2
+  pace_steps: 500
+  chi1_trans_cut_deg: 120
+  fes_vmax_kJmol: 25
+
+kordysh:
+  csv: data/experiment/kordysh2005_lambda_max.csv
+
+figures:
+  dpi: 200
