@@ -83,7 +83,7 @@ non-monotonic 50 C point is kept, with R^2 from 0.10 to 0.87**:
 
 At 25 and 30 C the PBC-clean trajectories contain **zero** S3 frames, so those temperatures cannot enter the
 fit. The computed crossover falls inside the experimental midpoint window (Kordysh 37-40 C, Lozhko HSQC 37-43 C,
-Malyna ~42 C), but the thesis-era value T_c = 41.4 C is **not** reproduced: it rested on two low-temperature
+Malyna ~42 C), but the single point value printed in the thesis and the conference abstracts is **not** reproduced: it rested on two low-temperature
 points (P(S3) = 0.039 and 0.036) that are periodic-boundary artifacts (result 6).
 
 **3. The hot rotamer is not solvent-exposed within the sampled microsecond -- but "buried flip-out" is
