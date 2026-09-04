@@ -1,0 +1,38 @@
+{
+ "clean_vs_gmx_angle_at_1ns": {
+  "30": {
+   "n_compared": 1001,
+   "frac_within_1deg_clean_vs_gmx": 1.0,
+   "frac_within_1deg_raw_vs_gmx": 0.9131
+  },
+  "35": {
+   "n_compared": 1001,
+   "frac_within_1deg_clean_vs_gmx": 1.0,
+   "frac_within_1deg_raw_vs_gmx": 0.95
+  },
+  "40": {
+   "n_compared": 1001,
+   "frac_within_1deg_clean_vs_gmx": 1.0,
+   "frac_within_1deg_raw_vs_gmx": 0.9151
+  },
+  "45": {
+   "n_compared": 1001,
+   "frac_within_1deg_clean_vs_gmx": 1.0,
+   "frac_within_1deg_raw_vs_gmx": 0.9421
+  },
+  "50": {
+   "n_compared": 1001,
+   "frac_within_1deg_clean_vs_gmx": 1.0,
+   "frac_within_1deg_raw_vs_gmx": 0.9351
+  }
+ },
+ "pooled": {
+  "frames_basin_changed_total": 400,
+  "frac_basin_changed_pooled": 0.0666,
+  "raw_P_S3_25C": 0.039,
+  "clean_P_S3_25C": 0.0,
+  "raw_P_S3_30C": 0.036,
+  "clean_P_S3_30C": 0.0
+ },
+ "sign_convention": "clean chi2 == gmx angle -type dihedral (right-handed IUPAC): S1 ~ +100 deg, S3 ~ -120 deg"
+}

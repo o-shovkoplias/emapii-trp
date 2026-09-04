@@ -1,0 +1,49 @@
+{
+ "dG_boltzmann_kJmol_per_T": {
+  "25": 1.76,
+  "30": -6.1,
+  "35": 6.38,
+  "40": -6.51,
+  "45": -7.97,
+  "50": -5.52
+ },
+ "dG_sign_changes_across_T": 3,
+ "max_abs_step_between_neighbouring_T_kJmol": 12.89,
+ "spread_dG_over_last_400ns_blocks_kJmol": {
+  "25": 2.01,
+  "30": 4.2,
+  "35": 12.4,
+  "40": 7.57,
+  "45": 9.5,
+  "50": 4.04
+ },
+ "barrier_S1_to_S3_via_S2_kJmol_per_T": {
+  "25": 9.47,
+  "30": 17.98,
+  "35": 20.95,
+  "40": 13.46,
+  "45": 23.11,
+  "50": 16.15
+ },
+ "barrier_S1_to_S3_via_180_kJmol_per_T": {
+  "25": 28.53,
+  "30": 25.69,
+  "35": 34.91,
+  "40": 31.44,
+  "45": 37.69,
+  "50": 30.3
+ },
+ "vant_hoff_on_metad_dG": {
+  "n": 6,
+  "slope": -11317.44,
+  "intercept": 37.59,
+  "dH_kJmol": 94.1,
+  "dS_JmolK": 312.54,
+  "Tc_K": 301.07,
+  "Tc_C": 27.92,
+  "R2": 0.25,
+  "se_dH_kJmol": 82.14,
+  "se_dS_JmolK": 264.71
+ },
+ "verdict": "Six single-walker 1-us WTMetaD runs (sigma 0.35 rad, H 1.2 kJ/mol, gamma 10, PACE 500) are not converged: dG(S3-S1) is non-monotonic in T and jumps by >10 kJ/mol between neighbouring temperatures; each run remains trapped in the S1- or S3-dominated branch it fell into during the first ~100-200 ns. No transition temperature is derived from them. Multiple-walker or OPES sampling is the pending fix."
+}

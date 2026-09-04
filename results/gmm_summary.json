@@ -1,0 +1,78 @@
+{
+ "n_components": 4,
+ "features": [
+  "dgln",
+  "dlys",
+  "dne",
+  "dmin",
+  "sasa"
+ ],
+ "BIC_argmin_in_scan": 8,
+ "centroids": {
+  "0": {
+   "dgln": 6.3,
+   "dlys": 12.95,
+   "dne": 8.5,
+   "dmin": 4.17,
+   "sasa": 4.83,
+   "n": 934,
+   "frac_S3": 0.0,
+   "frac_S1": 0.99,
+   "name": "deep buried"
+  },
+  "1": {
+   "dgln": 8.95,
+   "dlys": 9.05,
+   "dne": 9.0,
+   "dmin": 6.58,
+   "sasa": 30.09,
+   "n": 2390,
+   "frac_S3": 0.204,
+   "frac_S1": 0.693,
+   "name": "loose / exposed"
+  },
+  "2": {
+   "dgln": 4.59,
+   "dlys": 11.35,
+   "dne": 4.25,
+   "dmin": 3.41,
+   "sasa": 32.07,
+   "n": 1721,
+   "frac_S3": 0.791,
+   "frac_S1": 0.138,
+   "name": "Gln132 pocket"
+  },
+  "3": {
+   "dgln": 9.48,
+   "dlys": 6.61,
+   "dne": 9.83,
+   "dmin": 6.83,
+   "sasa": 14.02,
+   "n": 961,
+   "frac_S3": 0.023,
+   "frac_S1": 0.963,
+   "name": "Lys face"
+  }
+ },
+ "P(Gln132 pocket | S3)": 0.728,
+ "P(S3 | Gln132 pocket)": 0.791,
+ "P(Lys face | S1)": 0.247,
+ "P(S1 | Lys face)": 0.963,
+ "Gln132_pocket_fraction_per_T": {
+  "25": 0.056,
+  "30": 0.011,
+  "35": 0.172,
+  "40": 0.505,
+  "45": 0.876,
+  "50": 0.099
+ },
+ "Lys_face_fraction_per_T": {
+  "25": 0.174,
+  "30": 0.0,
+  "35": 0.735,
+  "40": 0.0,
+  "45": 0.0,
+  "50": 0.051
+ },
+ "note": "n=4 is an interpretability choice; BIC keeps improving up to the end of the scan (see gmm_bic.csv). Cluster names follow the fixed centroid rule in name_clusters()."
+}

@@ -37,7 +37,7 @@ vant_hoff:
 
 bootstrap:
   n_boot: 2000
-  block_length_frames: 50      # 50 ns blocks (chi2 basin autocorrelation is tens of ns)
+  block_length_frames: 100     # 100 ns blocks; the S3 indicator autocorrelation time reaches ~200 ns at 35 C, so CIs remain optimistic
   seed: 2026
   ci: 0.95
 

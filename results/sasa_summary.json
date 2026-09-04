@@ -1,0 +1,65 @@
+{
+ "endpoint_S1_at_25C_mean_A2": 25.59,
+ "endpoint_S3_at_45C_mean_A2": 18.87,
+ "endpoint_delta_S3_minus_S1_A2": -6.72,
+ "endpoint_delta_ci95": [
+  -8.27,
+  -5.27
+ ],
+ "pooled_S1_mean_A2": 22.33,
+ "pooled_S3_mean_A2": 24.93,
+ "pooled_delta_S3_minus_S1_A2": 2.6,
+ "pooled_delta_ci95": [
+  1.58,
+  3.6
+ ],
+ "pooled_n_S1": 3744,
+ "pooled_n_S3": 1871,
+ "fixed_T_comparisons": {
+  "35": {
+   "S1_mean": 15.92,
+   "S3_mean": 22.07,
+   "delta_S3_minus_S1": 6.15,
+   "ci95": [
+    4.63,
+    7.72
+   ],
+   "n_S1": 769,
+   "n_S3": 216
+  },
+  "40": {
+   "S1_mean": 36.68,
+   "S3_mean": 44.63,
+   "delta_S3_minus_S1": 7.95,
+   "ci95": [
+    5.21,
+    10.8
+   ],
+   "n_S1": 503,
+   "n_S3": 336
+  },
+  "50": {
+   "S1_mean": 42.2,
+   "S3_mean": 24.35,
+   "delta_S3_minus_S1": -17.85,
+   "ci95": [
+    -20.07,
+    -15.73
+   ],
+   "n_S1": 549,
+   "n_S3": 362
+  }
+ },
+ "T45_frac_frames_sasa_gt_100": 0.0,
+ "T45_max_sasa_A2": 79.75,
+ "mean_indole_sasa_per_T_A2": {
+  "25": 27.22,
+  "30": 5.89,
+  "35": 17.23,
+  "40": 40.01,
+  "45": 19.25,
+  "50": 35.34
+ },
+ "spearman_chi2_sasa_pooled": -0.045,
+ "reading": "The endpoint comparison (S3 at 45 C more buried than S1 at 25 C) confounds rotamer with temperature; pooled by rotamer and at fixed T the sign reverses. Neither rotamer reaches bulk-like exposure within the 1-us runs -- a statement about the sampled timescale, not a physical prohibition."
+}
