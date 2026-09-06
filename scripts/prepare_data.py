@@ -91,7 +91,7 @@ def main(
 ) -> None:
     """Copy and reduce the source files into data/ and write data/MANIFEST.json."""
     manifest: list[dict] = []
-    _SOURCE_ROOTS[:] = [(source_root, "source-root"), (pdb.parent, "pdb-dir")] if "pdb" in dir() else [(source_root, "source-root")]
+    _SOURCE_ROOTS[:] = [(source_root, "source-root"), (pdb.parent, "pdb-dir")]
     ang = source_root / "ang"
 
     typer.echo("[1] PBC-clean per-frame table (6006 frames = 6 T x 1001 frames at 1 ns)")
