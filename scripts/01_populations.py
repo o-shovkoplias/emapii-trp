@@ -98,7 +98,7 @@ def main(config: Path = typer.Option(Path("config.yaml"), help="Parameter file."
     ax.set_xticks(Ts)
     if not np.isnan(cross):
         ax.axvline(cross, color="k", ls=":", lw=0.9)
-        ax.text(cross + 0.4, 0.98, f"P(S3)=P(S1)\n~{cross:.0f} C", fontsize=8, va="top")
+        ax.text(cross - 1.3, 0.12, f"P(S3)=P(S1)\n~{cross:.0f} C (interp.)", fontsize=7.5, ha="right", va="bottom")
     ax2 = ax.twinx()
     meas = kord[kord.kind == "measured"]
     ax2.plot(kord["T_C"], kord["lambda_max_nm"], "--", color=COLORS["exp"], lw=1, alpha=0.6)

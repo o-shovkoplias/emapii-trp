@@ -94,7 +94,7 @@ def main(config: Path = typer.Option(Path("config.yaml"))) -> None:
         "P(Lys face | S1)": round(float(lys[S1].mean()), 3), "P(S1 | Lys face)": round(float(S1[lys].mean()), 3),
         "Gln132_pocket_fraction_per_T": {int(k): float(v) for k, v in ct_T.loc["Gln132 pocket"].items()},
         "Lys_face_fraction_per_T": {int(k): float(v) for k, v in ct_T.loc["Lys face"].items()} if "Lys face" in ct_T.index else {},
-        "note": "n=4 is an interpretability choice; BIC keeps improving up to the end of the scan (see gmm_bic.csv). "
+        "note": "n=4 is an interpretability choice; the BIC minimum is at the end of the scan (n=8, not monotonic; see gmm_bic.csv). "
                 "Cluster names follow the fixed centroid rule in name_clusters().",
     }
     (RESULTS_DIR / "gmm_summary.json").write_text(json.dumps(summary, indent=1) + "\n")
@@ -127,7 +127,8 @@ def main(config: Path = typer.Option(Path("config.yaml"))) -> None:
     for s in ("S1", "S2", "S3", "other"):
         if s in comp:
             ax.barh(comp.index, comp[s], left=bottom, color=COLORS[s], label=s); bottom += comp[s].to_numpy()
-    ax.set_xlabel("fraction of cluster frames"); ax.set_title("(d) chi2 state composition of each cluster"); ax.legend(fontsize=7.5, loc="lower right")
+    ax.set_xlabel("fraction of cluster frames"); ax.set_title("(d) chi2 state composition of each cluster")
+    ax.legend(fontsize=7.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=4)
     fig.tight_layout()
     FIGURES_DIR.mkdir(exist_ok=True)
     fig.savefig(FIGURES_DIR / "gmm_pockets.png")

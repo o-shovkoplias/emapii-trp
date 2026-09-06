@@ -2,7 +2,7 @@
 """Analysis 6 -- why the minimum-image / NoJump correction matters for a dihedral.
 
 Compares, frame by frame, the RAW chi2 (MDAnalysis dihedral without the box; the file
-family that produced the retracted T_c = 41.4 C) with the PBC-clean chi2 and with the
+family behind the retracted thesis-era point value of T_c) with the PBC-clean chi2 and with the
 gmx-angle chi2 at the same times. Reports the fraction of frames whose basin label
 changes per temperature and shows the 25 C histograms.
 

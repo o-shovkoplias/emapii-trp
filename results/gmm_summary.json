@@ -74,5 +74,5 @@
   "45": 0.0,
   "50": 0.051
  },
- "note": "n=4 is an interpretability choice; BIC keeps improving up to the end of the scan (see gmm_bic.csv). Cluster names follow the fixed centroid rule in name_clusters()."
+ "note": "n=4 is an interpretability choice; the BIC minimum is at the end of the scan (n=8, not monotonic; see gmm_bic.csv). Cluster names follow the fixed centroid rule in name_clusters()."
 }

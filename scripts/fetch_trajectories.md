@@ -3,7 +3,7 @@
 The MD trajectories are not part of this repository (six protein-only `.xtc` files at 1 ns, ~60 MB each;
 the full-system trajectories with water are several GB each; six PLUMED `HILLS` files, 162 MB each).
 
-They are available on request from the author (Oleksandr Shovkoplias, sovkoplias@gmail.com) or via the
+They are available on request from the author (Oleksandr Shovkoplias, o.s.shovkoplias@gmail.com) or via the
 supervisor's group (Department of Molecular Physics, Faculty of Physics, Taras Shevchenko National University
 of Kyiv). Please state which of the following you need:
 

@@ -124,12 +124,12 @@ def main(config: Path = typer.Option(Path("config.yaml"))) -> None:
     for yi, r in zip(y, fits_df.itertuples()):
         if (r.Tc_boot95_lo < xlo) or (r.Tc_boot95_hi > xhi):
             ax.text(xhi - 0.5, yi + 0.22, "bootstrap CI extends beyond the axis", ha="right", fontsize=7, color="#777")
-    ax.axvspan(37, 45, color=COLORS["exp"], alpha=0.08, lw=0)
-    ax.text(41, -0.9, "experimental midpoint window 37-45 C", ha="center", fontsize=7.5, color=COLORS["exp"])
+    ax.axvspan(37, 43, color=COLORS["exp"], alpha=0.08, lw=0)
+    ax.text(40, -0.9, "experimental midpoint estimates 37-43 C\n(Kordysh 2005, Lozhko 2026 HSQC, Malyna)", ha="center", fontsize=7, color=COLORS["exp"])
     ax.set_yticks(y); ax.set_yticklabels(lab, fontsize=7.5)
     ax.set_xlabel("T_c = dH/dS  (C), block-bootstrap 95% CI")
     ax.set_title("T_c is definition-dependent")
-    ax.set_xlim(xlo, xhi); ax.set_ylim(-1.3, len(fits_df) - 0.4)
+    ax.set_xlim(xlo, xhi); ax.set_ylim(-1.6, len(fits_df) - 0.4)
     fig.tight_layout()
     FIGURES_DIR.mkdir(exist_ok=True)
     fig.savefig(FIGURES_DIR / "vant_hoff.png")

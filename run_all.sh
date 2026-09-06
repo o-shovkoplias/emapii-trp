@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Regenerate every table in results/ and every figure in figures/ from data/.
 # Usage:  ./run_all.sh            (uses `python` on PATH; override with PYTHON=/path/to/python)
-# Runtime: about 1-2 minutes on a laptop CPU. No GPU, no trajectories, no MD engine needed.
+# Runtime: about 15 s on a laptop CPU. No GPU, no trajectories, no MD engine needed.
 set -euo pipefail
 cd "$(dirname "$0")"
 PYTHON="${PYTHON:-python}"

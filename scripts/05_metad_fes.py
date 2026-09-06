@@ -111,7 +111,7 @@ def main(config: Path = typer.Option(Path("config.yaml"))) -> None:
         ax.set_xlabel("chi1 (deg)"); ax.set_ylabel("chi2 (deg)")
         ax.set_xticks(range(-180, 181, 60)); ax.set_yticks(range(-180, 181, 60))
     fig.colorbar(pcm, ax=axes.ravel().tolist(), shrink=0.8, label="F (kJ/mol)")
-    fig.suptitle("WTMetaD F(chi1, chi2) of Trp128, 1 us single walker per T -- dG(T) is non-monotonic: NOT converged", fontsize=10.5)
+    fig.suptitle("WTMetaD F(chi1, chi2) of Trp128, 1 us single walker per T -- dG(T) is non-monotonic: NOT converged\n(red bands: chi1 trans gate |chi1| > 120 deg used for dG; shaded rows: S1 / S3 chi2 windows)", fontsize=10)
     FIGURES_DIR.mkdir(exist_ok=True)
     fig.savefig(FIGURES_DIR / "metad_fes_6T.png")
 

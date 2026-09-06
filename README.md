@@ -12,7 +12,7 @@ consultant O. Kornelyuk).
 experimental Trp emission maximum of Kordysh et al. 2005 on the right axis. (b, c) Well-tempered metadynamics
 free-energy surfaces F(chi1, chi2) at 25 and 45 C -- single 1 us walkers, shown because they are NOT converged
 (see below). (d) Gaussian-mixture clustering of the indole micro-environment: the flip-out rotamer sits in a
-pocket lined by Gln132, the flip-in rotamer near the Lys124-126 face.*
+pocket lined by Gln132; the Lys124-126-face cluster is almost purely flip-in but holds only a quarter of the flip-in frames.*
 
 Every number in this README is written by the scripts in `scripts/` from the files in `data/`
 (`./run_all.sh`, ~15 s on a laptop CPU, no GPU, no MD engine, no trajectories needed).
@@ -64,7 +64,8 @@ is bimodal: S1 "flip-in" at chi2 ~ +98 deg and S3 "flip-out" at ~ -117 deg (pool
 | 45 | 0.00 | 0.96 [0.93, 0.98] | 0.04 | 0.01 |
 | 50 | 0.55 [0.28, 0.76] | 0.36 [0.18, 0.62] | 0.06 | 0.03 |
 
-P(S3) = P(S1) by linear interpolation at **~41 C**. The 50 C run is non-monotonic (S1 partly returns) and the
+P(S3) = P(S1) by linear interpolation at **~41 C** (between the 40 and 45 C grid points only -- a descriptive
+crossover, not a fitted transition temperature; see result 2). The 50 C run is non-monotonic (S1 partly returns) and the
 integrated autocorrelation time of the S3 indicator reaches ~200 ns at 35 C, i.e. ~5 independent samples per
 microsecond -- these are single-replica numbers.
 
@@ -81,8 +82,8 @@ non-monotonic 50 C point is kept, with R^2 from 0.10 to 0.87**:
 | windows S1 [60,130] / S3 [-160,-90] | 35, 40, 45, 50 | 35.4 | 0.10 |
 | same, drop 50 C | 35, 40, 45 | 37.6 | 0.85 |
 
-At 25 and 30 C the PBC-clean trajectories contain **zero** S3 frames, so those temperatures cannot enter the
-fit. The computed crossover falls inside the experimental midpoint window (Kordysh 37-40 C, Lozhko HSQC 37-43 C,
+At 25 and 30 C the PBC-clean trajectories contain **zero** S3-window frames, so those temperatures cannot enter the
+fit (the sign cut admits 3 frames with chi2 < -90 deg at 25 C, which is why that row uses 25 C). The computed crossover falls inside the experimental midpoint window (Kordysh 37-40 C, Lozhko HSQC 37-43 C,
 Malyna ~42 C), but the single point value printed in the thesis and the conference abstracts is **not** reproduced: it rested on two low-temperature
 points (P(S3) = 0.039 and 0.036) that are periodic-boundary artifacts (result 6).
 
@@ -91,15 +92,17 @@ temperature-confounded** (`results/sasa_summary.json`, `figures/chi2_vs_sasa.png
 At 45 C **0.0 %** of frames have indole SASA > 100 A^2 (max 79.8 A^2). Comparing the experimental endpoints,
 S3 at 45 C (18.9 A^2, n = 957) is more buried than S1 at 25 C (25.6 A^2, n = 930), delta = -6.7 A^2. But pooled
 over all six temperatures the sign flips (S1 22.3 vs S3 24.9 A^2, delta = +2.6 [+1.6, +3.6]), and at fixed
-T = 35 / 40 C S3 is *more* exposed (+6.2 / +8.0 A^2). The robust statement is only: within these runs neither
+T = 35 / 40 C S3 is *more* exposed (+6.2 / +8.0 A^2) while at 50 C it is *less* exposed (-17.9 A^2). The robust statement is only: within these runs neither
 rotamer reaches bulk-like exposure. **This is a timescale statement** -- the globule does not relax to its
 high-temperature equilibrium form within 1 us (see Limitations) -- not evidence that exposure is excluded.
 
 **4. The switch is an exchange between two internal pockets** (`results/gmm_*.csv`, `figures/gmm_pockets.png`).
 A 4-component Gaussian mixture on (d_Gln132, d_Lys124-126, d_NE1-OE1, d_min, SASA) gives a "Gln132 pocket"
 cluster (centroid d_Gln = 4.6 A, NE1-OE1 = 4.3 A) that is 79 % S3 and holds 73 % of all S3 frames, and a
-"Lys face" cluster (d_Lys = 6.6 A) that is 96 % S1. Gln132-pocket occupancy rises 6 % -> 17 % -> 51 % -> 88 %
-from 25 to 45 C. BIC keeps decreasing up to n = 8, so n = 4 is an interpretability choice, not a model-selection
+"Lys face" cluster (d_Lys = 6.6 A) that is 96 % S1 but contains only 25 % of all S1 frames (most S1 frames fall in a
+diffuse "loose / exposed" cluster). Gln132-pocket occupancy per T is 6 / 1 / 17 / 51 / 88 / 10 % at 25 / 30 / 35 / 40 / 45 / 50 C --
+it rises with T up to 45 C and collapses again in the non-monotonic 50 C run. The BIC minimum is at n = 8, the end of the
+scan (and not monotonic: n = 6 is worse than n = 5), so n = 4 is an interpretability choice, not a model-selection
 result; the 30 C run forms its own very buried cluster (SASA 4.8 A^2), an anomaly of that single replica.
 
 **5. Single-walker WTMetaD did not converge -- and that is the reported result** (`results/metad_dG.csv`,
@@ -113,7 +116,7 @@ flips seen in the unbiased runs.
 
 **6. Why NoJump / minimum-image matters** (`results/pbc_basin_changes.csv`, `figures/pbc_demo.png`).
 Computing chi2 without the box splits the side chain across the periodic boundary in **400 of 6006 frames
-(6.7 %)**, shifting them by ~130-150 deg and relabelling genuine S1 frames as S3. At 25 C the raw file reports
+(6.7 %)**, shifting them by ~125-150 deg (median per T) and relabelling genuine S1 frames as S3. At 25 C the raw file reports
 39 S3 frames; the clean one reports 0. The clean chi2 agrees with `gmx angle -type dihedral` to < 1 deg in
 100 % of the compared frames (`results/convention_check.json`), confirming the GROMACS/IUPAC sign convention.
 
@@ -126,8 +129,8 @@ Computing chi2 without the box splits the side chain across the periodic boundar
   protein does not relax to the form natural for it at 40-50 C (the CHARMM36m runs never flip at all in 200 ns;
   the 50 C run only begins to unfold; the experimental melting midpoint is ~45 C). A surface-exposed state
   remains possible and is simply not sampled here.
-* **Force field.** All six long trajectories are **AMBER03 + TIP3P** (the APS abstract below says CHARMM36m --
-  that was a labelling error corrected in the thesis). TIP3P-based thermostat temperatures carry a systematic
+* **Force field.** All six long trajectories are **AMBER03 + TIP3P** (the March 2026 APS talk materials label them CHARMM36m --
+  a labelling error corrected in the thesis). TIP3P-based thermostat temperatures carry a systematic
   +/- 10-20 K uncertainty relative to experiment; no temperature re-mapping is applied.
 * **T_c is definition-dependent** (35-40 C, R^2 0.10-0.87); quote the range, not a point value.
 * **GMM n = 4** is a choice; cluster names come from a fixed centroid rule (`scripts/04_gmm_pockets.py`).
@@ -137,7 +140,7 @@ Computing chi2 without the box splits the side chain across the periodic boundar
 ## Reproduce
 
 ```bash
-git clone <this repo> && cd emapii-trp
+git clone https://github.com/o-shovkoplias/emapii-trp && cd emapii-trp
 conda env create -f environment.yml && conda activate emapii-trp   # or: pip install -r requirements.txt
 ./run_all.sh           # tests + 7 scripts, ~15 s; regenerates results/*.csv|json and figures/*.png
 ```
@@ -171,12 +174,12 @@ Re-extracting `data/md_clean/clean_perframe.npz` from the trajectories needs the
 
 ## Presentations of this work
 
-* **Oral**, APS Satellite Symposium, Bogolyubov Institute for Theoretical Physics, Kyiv, 17-19 March 2026:
-  *"Conformational mobility of Trp125 in the EMAP II protein: molecular dynamics study"*
-  (O. Shovkoplias, O. Kornelyuk, T. Nikolaienko).
-* **Poster**, NANO-2026, Chernivtsi, 26-28 August 2026:
-  *"Temperature-driven conformational switching of tryptophan in EMAP II protein: a molecular-dynamics study"*
-  (O. S. Shovkoplias, T. Y. Nikolaenko, O. I. Korneliuk).
+* **Oral**: *"Conformational mobility of Trp125 in the EMAP II protein: molecular dynamics study"*
+  (O. Shovkoplias, O. Kornelyuk, T. Nikolaienko). APS Satellite Symposium & Workshop "Applied Problems of Theoretical
+  and Computational Biophysics", Bogolyubov Institute for Theoretical Physics, NAS of Ukraine, Kyiv, 17-19 March 2026.
+* **Poster**: *"Temperature-driven conformational switching of tryptophan in EMAP II protein: a molecular-dynamics study"*
+  (O. S. Shovkoplias, T. Y. Nikolaenko, O. I. Korneliuk). 14th International Conference "Nanotechnologies and
+  Nanomaterials" (NANO-2026), Chernivtsi, 26-28 August 2026.
 
 ## References
 
@@ -197,7 +200,7 @@ Re-extracting `data/md_clean/clean_perframe.npz` from the trajectories needs the
 
 ```
 Shovkoplias O. (2026). emapii-trp: re-analysis package for the temperature-driven Trp125 rotamer switch in
-EMAP II. BSc thesis, Taras Shevchenko National University of Kyiv. https://github.com/<user>/emapii-trp
+EMAP II. BSc thesis, Taras Shevchenko National University of Kyiv. https://github.com/o-shovkoplias/emapii-trp
 ```
 
 License: MIT (see `LICENSE`).

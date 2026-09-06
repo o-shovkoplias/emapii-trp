@@ -32,10 +32,24 @@ HILLS_DIRS = {25: "wtmetad_25", 30: "wtmetad_30", 35: "wtmetad_35",
               40: "wtmetad_40_new", 45: "wtmetad_45", 50: "wtmetad_50"}
 
 
+def _rel(path) -> str:
+    """Record provenance without leaking the local filesystem layout."""
+    path = Path(path)
+    for root, tag in _SOURCE_ROOTS:
+        try:
+            return f"<{tag}>/" + path.relative_to(root).as_posix()
+        except ValueError:
+            continue
+    return "<local>/" + path.name
+
+
+_SOURCE_ROOTS: list = []
+
+
 def _copy(src: Path, dst: Path, manifest: list[dict], note: str) -> None:
     dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(src, dst)
-    manifest.append({"dest": str(dst.relative_to(REPO)), "source": str(src),
+    manifest.append({"dest": str(dst.relative_to(REPO)), "source": _rel(src),
                      "bytes": dst.stat().st_size, "note": note})
     typer.echo(f"  {dst.relative_to(REPO)}  <-  {src}")
 
@@ -77,6 +91,7 @@ def main(
 ) -> None:
     """Copy and reduce the source files into data/ and write data/MANIFEST.json."""
     manifest: list[dict] = []
+    _SOURCE_ROOTS[:] = [(source_root, "source-root"), (pdb.parent, "pdb-dir")] if "pdb" in dir() else [(source_root, "source-root")]
     ang = source_root / "ang"
 
     typer.echo("[1] PBC-clean per-frame table (6006 frames = 6 T x 1001 frames at 1 ns)")
@@ -98,7 +113,7 @@ def main(
                    f"trajectory at T={T} C\n# downsampled every {chi2_stride} rows from a 10-ps file "
                    f"({len(raw)} rows) by scripts/prepare_data.py\n# cols: time_ps  chi2_deg (GROMACS sign)\n")
             dst.write_text(hdr + "\n".join(f"{t:.1f} {c:.3f}" for t, c in sub) + "\n")
-            manifest.append({"dest": str(dst.relative_to(REPO)), "source": str(g), "bytes": dst.stat().st_size,
+            manifest.append({"dest": str(dst.relative_to(REPO)), "source": _rel(g), "bytes": dst.stat().st_size,
                              "note": f"downsampled x{chi2_stride} from 10-ps gmx angle output"})
             typer.echo(f"  {dst.relative_to(REPO)}  <-  {g} (x{chi2_stride})")
         else:
@@ -129,7 +144,7 @@ def main(
             np.savez_compressed(dst, fes_kJmol=fes.astype(np.float32), chi1_deg=centers, chi2_deg=centers,
                                 n_hills=len(h), t_end_ns=t_ps[-1] / 1000.0, T_C=T,
                                 sigma_rad=0.35, bias_factor=10.0, source=str(hills))
-            manifest.append({"dest": str(dst.relative_to(REPO)), "source": str(hills), "bytes": dst.stat().st_size,
+            manifest.append({"dest": str(dst.relative_to(REPO)), "source": _rel(hills), "bytes": dst.stat().st_size,
                              "note": f"200x200 FES grid from {len(h)} hills (t_end={t_ps[-1]/1000:.0f} ns), FFT sum, WT factor gamma/(gamma-1)"})
             typer.echo(f"    -> {dst.relative_to(REPO)}: {len(h)} hills, {t_ps[-1]/1000:.0f} ns")
 
